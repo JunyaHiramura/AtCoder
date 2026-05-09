@@ -7,3 +7,5 @@ ac-library/**
 
 *.in
 *.out
+
+test.cpp
