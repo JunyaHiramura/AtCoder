@@ -102,8 +102,9 @@ array.push_back({0, 0, 0});
 
 |関数|説明|使い方|
 |-----|-----|-----|
-|size, length|文字列のサイズを求める<br>2つに動作上の違いはなく好みで使用<br>日本語などの全角文字を扱う場合は正しく求められないため注意する(求めるのはサイズではなくバイト数であるため)|string str = "test";<br>str.size() or str.length()<br>size_t型で返す(size_tは0以上の値)|
+|size, length|文字列のサイズを求める<br>2つに動作上の違いはなく好みで使用<br>日本語などの全角文字を扱う場合は正しく求められないため注意する(求めるのはサイズではなくバイト数であるため)|string str = "test";<br>str.size() or str.length()<br>size_t型で返す(size_tは0以上の値)<br>文字列を後ろから取得したい場合、str.size()を利用するなど応用できる|
 |empty|空の文字列であるか判定<br>条件式などで利用する|string str = "test"<br>str.empty()|
+|substr|部分文字列を取得する|string str = 文字列;<br>str.substr(開始位置, 取得する文字列の長さ);<br>取得する文字列の長さは省略可能、その場合最後までの文字列を取得する|
 
 ### 連鎖代入
 
