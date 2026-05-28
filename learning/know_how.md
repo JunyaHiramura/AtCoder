@@ -1,13 +1,71 @@
 # ノウハウ
 
-## AtCoderを行う上で学んだことを蓄積する
+## AtCoderを行う中で学んだことを蓄積する
 
-## C++コーディング
+## C++編
 
 ### cppリファレンス
 
 関数の使い方や使いたい機能について調べる際によく利用するサイト
 [cppリファレンス](https://cpprefjp.github.io/index.html)
+
+### 目次
+* [vector](#vector)
+
+<!-- template
+### [関数名]
+#### 概要
+#### 使い方
+```
+```
+#### ベストプラクティス
+*
+*
+*
+-->
+
+### vector
+
+#### 概要
+
+可変長配列
+
+#### 使い方
+
+```
+// 要素数指定なし、初期化なし
+vector<int> array;
+※ちなみに普通の配列で、
+int array[];
+のような記載はコンパイルエラーになるため不可。
+
+// 要素数指定あり、初期化なし
+vector<int> array(5);
+
+// 要素数指定あり、初期化あり
+//（全要素の値を同じ値で初期化 ※以下例だとすべて1で初期化）
+vector<int> array(5, 1);
+
+// 配列サイズを取得
+vector<int> array(5);
+int size;
+size = array.size(); // 変数のsizeには5が代入される
+
+// 2次元配列
+vector<vector<int>> array(rows, vector<int>(cols, 初期値))
+※ rows：行、cols：列
+
+//末尾に行を追加
+vector<vector<int>> array(2, vector<int>(3)); // 2×3の配列
+array.push_back(vector<int>(3, 0)); // 3行目に3列分の要素を追加（今回は0初期化）
+または以下でも同じ結果が得られる
+array.push_back({0, 0, 0});
+```
+
+#### ベストプラクティス
+*
+*
+*
 
 ### 配列
 
@@ -41,59 +99,6 @@ int array[5] = {0};
 
 * 可能な限り初期化時に値を設定する
   * 変数が常に初期化されることを保証することで未定義動作を防げる
-
-#### std::vector
-
-可変長配列
-以下のように使用する
-
-##### 要素数指定なし、初期化なし
-
-```
-vector<int> array;
-
-※ちなみに普通の配列で、
-int array[];
-のような記載はコンパイルエラーになるため不可。
-```
-
-##### 要素数指定あり、初期化なし
-
-``` vector<int> array(5); ```
-
-##### 要素数指定あり、初期化あり（全要素の値を同じ値で初期化 ※以下例だとすべて1で初期化）
-
-``` vector<int> array(5, 1); ```
-
-##### 配列サイズを取得
-
-```
-vector<int> array(5);
-int size;
-size = array.size(); // 変数のsizeには5が代入される
-```
-
-#### 2次元配列
-
-2次元配列はvectorを利用した実装例を記載する
-
-##### 基本構文
-
-```
-vector<vector<int>> array(rows, vector<int>(cols, 初期値))
-※ rows：行、cols：列
-```
-
-##### 末尾に行を追加
-
-```
-vector<vector<int>> array(2, vector<int>(3)); // 2×3の配列
-array.push_back(vector<int>(3, 0)); // 3行目に3列分の要素を追加（今回は0初期化）
-
-または以下でも同じ結果が得られる
-
-array.push_back({0, 0, 0});
-```
 
 ### 関数
 
