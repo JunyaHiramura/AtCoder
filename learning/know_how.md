@@ -11,6 +11,7 @@
 
 ### 目次
 * [vector](#vector)
+* [string](#string)
 
 <!-- template
 ### [関数名]
@@ -18,10 +19,7 @@
 #### 使い方
 ```
 ```
-#### ベストプラクティス
-*
-*
-*
+[目次にもどる](#目次)
 -->
 
 ### vector
@@ -60,12 +58,58 @@ vector<vector<int>> array(2, vector<int>(3)); // 2×3の配列
 array.push_back(vector<int>(3, 0)); // 3行目に3列分の要素を追加（今回は0初期化）
 または以下でも同じ結果が得られる
 array.push_back({0, 0, 0});
+
+// 従来とイテレータそれぞれのfor文
+vector<int> array = {1, 2, 3, 4, 5};
+// 従来の場合
+for (int i = 0; i < array.size(); i++) {
+  cout << array[i] << endl;
+}
+// イテレータの場合
+// begin() ... コンテナの最初の要素を指すイテレータ
+// end() ... コンテナの最後の要素の次を指すイテレータ（ここで終わりという意味でつかわれる）
+for (auto it = array.begin(); it != array.end(); it++) {
+  cout << *it << endl;
+}
+
+// 範囲for文
+vector<int> array = {1, 2, 3, 4, 5};
+// tmpArrayもarrayも値書き換え可能
+for (auto& tmpArray : array) {
+  cout << tmpArray << endl;
+}
+// tmpArrayの書き換えは可能だがarrayの書き換えは不可
+for (auto tmpArray : array) {
+  cout << tmpArray << endl;
+}
+// tmpArrayもarrayも書き換え不可
+for (const auto& tmpArray : array) {
+  cout << tmpArray << endl;
+}
+
+```
+[目次にもどる](#目次)
+
+### string
+#### 概要
+文字列を扱うときに使用
+#### 使い方
 ```
 
-#### ベストプラクティス
-*
-*
-*
+// 文字列の先頭を参照
+string str = "Hello";
+auto it = str.begin();
+char& c = *it;
+cout << c << endl; // H
+
+// 文字列の最後尾を参照
+string str = "Hello";
+auto it = str.end() - 1; // end()は文字列最後の次の要素を指すため
+char& c = *it;
+cout << c << endl;
+
+```
+[目次にもどる](#目次)
 
 ### 配列
 
