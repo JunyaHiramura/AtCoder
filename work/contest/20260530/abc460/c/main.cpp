@@ -13,8 +13,7 @@ int main() {
     int counter = 0;
     int minIdx = 0;
     for (int i = 0; i < n; i++) {
-        if (m < minIdx) break;
-        if ((long long) b[minIdx] <= (long long) a[i] * 2) {
+        if (minIdx < m && b[minIdx] <= a[i] * 2) {
             counter++;
             minIdx++;
         }
